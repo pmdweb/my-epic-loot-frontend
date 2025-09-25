@@ -1,0 +1,50 @@
+[
+  // Disable ALL possible Jupyter/Python interactive commands
+  {
+    "key": "shift+enter",
+    "command": "",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+enter", 
+    "command": "",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "enter",
+    "command": "",
+    "when": "editorTextFocus && inputFocus"
+  },
+  // Specifically disable in chat/input contexts
+  {
+    "key": "shift+enter",
+    "command": "",
+    "when": "inputFocus"
+  },
+  {
+    "key": "shift+enter",
+    "command": "",
+    "when": "chatInputHasFocus || chatSideBarVisible || chatViewVisible"
+  },
+  // Remove all Jupyter commands completely
+  {
+    "key": "shift+enter",
+    "command": "-jupyter.execSelectionInteractive"
+  },
+  {
+    "key": "enter",
+    "command": "-jupyter.execSelectionInteractive"  
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-jupyter.execSelectionInteractive"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-python.execSelectionInTerminal"
+  },
+  {
+    "key": "enter",
+    "command": "-python.execSelectionInTerminal"
+  }
+]

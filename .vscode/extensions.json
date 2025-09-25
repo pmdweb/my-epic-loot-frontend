@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"ms-vscode.vscode-typescript-next",
+		"bradlc.vscode-tailwindcss",
+		"esbenp.prettier-vscode"
+	],
+	"unwantedRecommendations": [
+		"ms-toolsai.jupyter",
+		"ms-toolsai.jupyter-keymap",
+		"ms-toolsai.jupyter-renderers"
+	]
+}

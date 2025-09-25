@@ -1,0 +1,39 @@
+{
+  // Completely disable Jupyter Interactive Window for all scenarios
+  "jupyter.interactiveWindow.textEditor.executeSelection": false,
+  "jupyter.sendSelectionToInteractiveWindow": false,
+  "jupyter.interactiveWindow.textEditor.magicCommandsAsComments": false,
+  "jupyter.interactive.sendSelectionToInteractiveWindow": false,
+  "jupyter.interactive.executeSelection": false,
+  "jupyter.enableCellCodeLens": false,
+  "jupyter.magicCommandsAsComments": false,
+  
+  // Additional comprehensive Jupyter disabling
+  "jupyter.askForKernelRestart": false,
+  "jupyter.enableScrollingForCellOutputs": false,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.pythonCellFolding": false,
+  "jupyter.enableExtendedKernelCompletions": false,
+  
+  // Force disable any Enter key bindings for Jupyter
+  "jupyter.runStartupCommands": [],
+  "jupyter.defaultKernel": "",
+  
+  // Language-specific overrides
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  
+  // Ensure TypeScript works properly
+  "typescript.suggest.enabled": true,
+  "typescript.validate.enable": true,
+  
+  // File associations to prevent confusion
+  "files.associations": {
+    "*.tsx": "typescriptreact",
+    "*.ts": "typescript"
+  }
+}
