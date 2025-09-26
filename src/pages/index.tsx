@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 export default function Home() {
+  const { data: session, status } = useSession()
+  
   return (
     <div style={{ 
       minHeight: '100vh',
@@ -37,19 +40,51 @@ export default function Home() {
             <a href="#miniatures" style={{ color: '#e0e6ff', textDecoration: 'none', transition: 'color 0.3s' }}>Miniatures</a>
             <a href="#digital" style={{ color: '#e0e6ff', textDecoration: 'none', transition: 'color 0.3s' }}>Digital</a>
             <a href="#lootbox" style={{ color: '#e0e6ff', textDecoration: 'none', transition: 'color 0.3s' }}>Lootboxes</a>
-            <button style={{
-              background: 'linear-gradient(135deg, #00d4ff 0%, #7b68ee 100%)',
-              color: '#fff',
-              padding: '0.6rem 1.5rem',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(0, 212, 255, 0.3)',
-              fontWeight: 'bold',
-              transition: 'all 0.3s ease'
-            }}>
-              🔐 Login with Google
-            </button>
+            {session ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <img 
+                  src={session.user?.image || ''} 
+                  alt="Profile" 
+                  style={{ width: '32px', height: '32px', borderRadius: '50%' }}
+                />
+                <span style={{ color: '#e0e6ff' }}>
+                  {session.user?.name}
+                </span>
+                <button 
+                  onClick={() => signOut()}
+                  style={{
+                    background: 'linear-gradient(135deg, #ff6b9d 0%, #ff8a00 100%)',
+                    color: '#fff',
+                    padding: '0.6rem 1.5rem',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 15px rgba(255, 107, 157, 0.3)',
+                    fontWeight: 'bold',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  🚪 Sign Out
+                </button>
+              </div>
+            ) : (
+              <button 
+                onClick={() => signIn('google')}
+                style={{
+                  background: 'linear-gradient(135deg, #00d4ff 0%, #7b68ee 100%)',
+                  color: '#fff',
+                  padding: '0.6rem 1.5rem',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 15px rgba(0, 212, 255, 0.3)',
+                  fontWeight: 'bold',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                🔐 Login with Google
+              </button>
+            )}
           </div>
         </nav>
       </header>
